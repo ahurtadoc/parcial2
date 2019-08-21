@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Duenno;
 use App\Marca;
 use App\Vehiculo;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class VehiculoController extends Controller
 {
@@ -23,18 +26,29 @@ class VehiculoController extends Controller
 
     public function store(Request $request)
     {
+        $input = (object) $request->input();
         $array_files_validacion = [
             'placa' => ['required','string','unique:vehiculos'],
             'nombre' => ['required', 'string'],
-            'cedula' => ['required', 'integer', 'unique:duenno'],
-            'marca' => ['required','exists:marcas,nombre'],
+            'cedula' => ['required', 'integer', 'unique:duennos'],
+            'marca_id' => ['required','exists:marcas,id'],
             ];
         $validator = Validator::make($request->all(), $array_files_validacion);
 
         if ($validator->fails()) {
+            dd($validator->errors());
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        dd($request->input()->marca);
+        $duenno = (new Duenno())->fill((array)$input);
+        $duenno->save();
+
+        $vehiculo = (new Vehiculo())->fill((array)$input);
+        $vehiculo->duenno_id = $duenno->id ;
+        if ($vehiculo->save()) {
+            $this->setAlert('success', 'Se ha guardado la información correctamente');
+            return redirect(route('crear'));
+        };
+
 
     }
 

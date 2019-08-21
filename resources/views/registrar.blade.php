@@ -38,11 +38,11 @@
                 {{--                            </span>--}}
             </div>
 
-            <label for="marca" class="col-md-11 control-label">Seleccione una marca </label>
+            <label for="marca_id" class="col-md-11 control-label">Seleccione una marca </label>
             <div class="form-group ">
-            <select multiple class="form-control" id="marca" name="marca">
+            <select multiple class="form-control" id="marca_id" name="marca_id">
                 @foreach($marcas as $marca)
-                <option>{{$marca->nombre}}</option>
+                <option value="{{$marca->id}}">{{$marca->nombre}}</option>
                 @endforeach
             </select>
 
