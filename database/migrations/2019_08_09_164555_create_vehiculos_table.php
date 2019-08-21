@@ -35,14 +35,20 @@ class CreateVehiculosTable extends Migration
         });
 
         App\Vehiculo::create([
-            'placa'=>'asda-d21',
+            'placa'=>'ahc-718',
             'marca_id' => 1,
             'duenno_id' => 1
         ]);
         App\Vehiculo::create([
-            'placa'=>'assa-d21',
+            'placa'=>'leh-991',
             'marca_id' => 2,
             'duenno_id' => 2
+        ]);
+
+        App\Vehiculo::create([
+            'placa'=>'sas-531',
+            'marca_id' => 2,
+            'duenno_id' => 3
         ]);
 
     }

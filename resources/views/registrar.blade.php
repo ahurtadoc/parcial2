@@ -7,7 +7,7 @@
         Agregue los datos necesarios
     </h2>
     <div class="box-body">
-        <form class="form-horizontal col-lg-6 col-lg-offset-3" method="post" action="{{ action('VehiculoController@store') }}">
+        <form class="form-horizontal col-lg-6 col-lg-offset-3" method="POST" action="{{action('VehiculoController@index') }}">
 {{--            {{ csrf_field() }}--}}
 {{--            <div class="form-group{{ $errors->has('numero_documento') ? ' has-error' : '' }}">--}}
                 <label class="col-md-4 control-label">Placa</label>

@@ -22,12 +22,17 @@ class CreateDuennosTable extends Migration
 
         App\Duenno::create([
             'nombre' => 'Alex',
-            'cedula' => 1234
+            'cedula' => 123444
         ]);
 
         App\Duenno::create([
             'nombre' => 'Juan',
-            'cedula' => 12333
+            'cedula' => 33123
+        ]);
+
+        App\Duenno::create([
+            'nombre' => 'Felipe',
+            'cedula' => 55525
         ]);
     }
 

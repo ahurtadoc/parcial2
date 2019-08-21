@@ -12,6 +12,6 @@ class Marca extends Model
 
     public function vehiculo()
     {
-        return $this->hasOne('App\Vehiculo','marca_id','id');
+        return $this->hasMany('App\Vehiculo','marca_id','id');
     }
 }

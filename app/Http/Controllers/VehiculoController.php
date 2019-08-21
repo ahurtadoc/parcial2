@@ -34,7 +34,7 @@ class VehiculoController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $request->input()->marca;
+        dd($request->input()->marca);
 
     }
 
