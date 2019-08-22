@@ -36,9 +36,9 @@ class VehiculoController extends Controller
         $validator = Validator::make($request->all(), $array_files_validacion);
 
         if ($validator->fails()) {
-            dd($validator->errors());
             return redirect()->back()->withErrors($validator)->withInput();
         }
+
         $duenno = (new Duenno())->fill((array)$input);
         $duenno->save();
 
